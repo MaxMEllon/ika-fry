@@ -4,7 +4,7 @@ class Record < ApplicationRecord
   RULES = {
     splat_zones: 'ガチエリア',
     rainmaker: 'ガチホコバトル',
-    tower_control: 'ガチホコ',
+    tower_control: 'ガチヤグラ',
     clam_blitz: 'ガチアサリ',
     turf_war: 'ナワバリバトル',
   }.freeze
