@@ -2,15 +2,21 @@ class Record < ApplicationRecord
   belongs_to :user
 
   RULES = {
-    turf_war: 'ガチホコバトル',
     splat_zones: 'ガチエリア',
-    clam_blitz: 'ガチアサリ',
+    rainmaker: 'ガチホコバトル',
     tower_control: 'ガチホコ',
+    clam_blitz: 'ガチアサリ',
+    turf_war: 'ナワバリバトル',
   }.freeze
 
   def kd
-    p kill / (death + 0.0)
     kill / (death + 0.0)
+  rescue => _
+    Float::INFINITY
+  end
+
+  def kad
+    (kill + assist) / (death + 0.0)
   rescue => _
     Float::INFINITY
   end

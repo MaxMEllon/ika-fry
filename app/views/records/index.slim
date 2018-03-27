@@ -26,16 +26,45 @@ sass:
               i.fas.fa-cloud-upload-alt
               | アップロード
       hr
-      .columns
-        .column.is-6
-          = high_chart('splat_zones', @splat_zones_graph)
-        .column.is-6
-          = high_chart('turf_war', @turf_war_graph)
-      .columns
-        .column.is-6
-          = high_chart('tower_control', @tower_control_graph)
-        .column.is-6
-          = high_chart('clam_blitz', @clam_blitz_graph)
+      - Record::RULES.each do |k, n|
+        .columns
+          .column.is-6
+            = high_chart(k.to_s, eval("@#{k.to_s}_graph"))
+          .column.is-6
+            .columns style="margin-top: 30px;"
+              .column.is-6
+                .card
+                  header.card-header
+                    p.card-header-title
+                      | 試合数
+                    .card-content
+                      .content
+                        = @grouped_by_rule[k]&.battle
+              .column.is-6
+                .card
+                  header.card-header
+                    p.card-header-title
+                      | 勝率
+                    .card-content
+                      .content
+                        = @grouped_by_rule[k]&.win_rate
+            .columns style="margin-top: 30px;"
+              .column.is-6
+                .card
+                  header.card-header
+                    p.card-header-title
+                      | k/d
+                    .card-content
+                      .content
+                        = @grouped_by_rule[k]&.kd
+              .column.is-6
+                .card
+                  header.card-header
+                    p.card-header-title
+                      | (k+a)/d
+                    .card-content
+                      .content
+                        = @grouped_by_rule[k]&.kad
       hr
       .column.is-12
         table.table.is-striped.w100
