@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require font_awesome5
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
