@@ -30,8 +30,8 @@ class Record < ApplicationRecord
           { title: { text: 'ガチパワー' } },
           { title: { text: 'K/D' }, opposite: true },
         ]
-        f.series(name: 'ガチパワー', yAxis: 0, data: records.map { |r| r.gachi_power } )
-        f.series(name: 'k/d', yAxis: 1, data: records.map { |r| r.kd } )
+        f.series(name: 'ガチパワー', yAxis: 0, data: records.map(&:gachi_power) )
+        f.series(name: 'k/d', yAxis: 1, data: records.map(&:kd) )
       end
     end
   end
