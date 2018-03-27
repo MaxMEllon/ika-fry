@@ -1,0 +1,8 @@
+{
+  "name": "ika-fry",
+  "private": true,
+  "dependencies": {
+    "bulma": "^0.6.2",
+    "reset.css": "^2.0.2"
+  }
+}

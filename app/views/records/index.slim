@@ -1,0 +1,27 @@
+- @title = 'record#index'
+= render 'layouts/hero'
+
+sass:
+  .w100
+    width: 100%
+
+.container
+  .level
+  .columns
+    = form_with(url: records_path, method: :post, local: true, class: 'w100') do |f|
+      .column.is-12
+        .field
+          .file.is-large.is-boxed
+            label.file-label.w100
+              = f.file_field :json, class: 'file-input'
+              span.file-cta
+                span.file-icon
+                  i.fas.fa-file
+                span.file-label
+                  | jsonファイルを選択してください
+      .column.is-12
+        .field.is-grouped.is-grouped-right
+          .control
+            = button_tag type: 'submit', class: 'button is-link' do
+              i.fas.fa-cloud-upload-alt
+              | アップロード

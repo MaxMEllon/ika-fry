@@ -1,0 +1,14 @@
+nav.navbar.is-primary role="navigation" aria-label="main navigation"
+  .navbar-burger data-target="js-navMainMenuTransparent"
+    span
+    span
+    span
+  .navbar-menu#js-navMainMenuTransparent
+    .navbar-start
+      - if current_user
+        = link_to 'トップ', '#', class: 'navbar-item'
+    .navbar-end
+      - if current_user
+        = link_to 'ログアウト', destroy_user_session_path, class: 'navbar-item', method: :delete
+      - else
+        = link_to 'ログイン', new_user_session_path, class: 'navbar-item'
